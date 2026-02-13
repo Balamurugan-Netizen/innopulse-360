@@ -12,7 +12,7 @@ export const getUsersController = async (req: Request, res: Response) => {
 };
 
 export const setUserApprovalController = async (req: Request, res: Response) => {
-  const { userId } = req.params;
+  const userId = String(req.params.userId);
   const { approved } = req.body as { approved: boolean };
 
   const user = await prisma.user.update({
